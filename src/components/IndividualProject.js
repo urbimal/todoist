@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { useProjectsValue, useSelectedProjectValue } from '../context';
@@ -28,21 +30,7 @@ export const IndividualProject = ({ project }) => {
         className="sidebar__project-delete"
         onClick={() => setShowConfirm(!showConfirm)}
       >
-        <FaTrashAlt />
-        {showConfirm && (
-          <div className="project-delete-modal">
-            <div className="project-delete-modal__inner">
-              <p>Are you sure?</p>
-              <button
-                type="button"
-                onClick={() => deleteProject(project.docId)}
-              >
-                Delete
-              </button>
-              <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
-            </div>
-          </div>
-        )}
+        <FaTrashAlt onClick={() => deleteProject(project.docId)} />
       </span>
     </>
   );

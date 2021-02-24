@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import { firebase } from '../firebase';
 import { generatePushId } from '../helpers';
@@ -50,7 +52,7 @@ export const AddProject = ({ shouldShow = false }) => {
             onClick={() => setShow(false)}
             onKeyDown={() => setShow(false)}
             role="button"
-          ></span>
+          />
         </div>
       )}
       <span className="add-project__plus">+</span>

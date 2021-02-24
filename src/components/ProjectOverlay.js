@@ -1,11 +1,8 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from 'react';
 import { useProjectsValue } from '../context';
 
-export const ProjectOverlay = ({
-  setProject,
-  setProjectOverlay,
-  setShowProjectOverlay,
-}) => {
+export const ProjectOverlay = ({ setProject, setShowProjectOverlay }) => {
   const { projects } = useProjectsValue();
 
   return (
@@ -18,11 +15,15 @@ export const ProjectOverlay = ({
               <div
                 onClick={() => {
                   setProject(project.projectId);
-                  setShowProjectOverlay(false);
+                  setShowProjectOverlay(
+                    (prevShowProjectOverlay) => !prevShowProjectOverlay
+                  );
                 }}
                 onKeyDown={() => {
                   setProject(project.projectId);
-                  setShowProjectOverlay(false);
+                  setShowProjectOverlay(
+                    (prevShowProjectOverlay) => !prevShowProjectOverlay
+                  );
                 }}
                 role="button"
               >

@@ -268,8 +268,9 @@ header {
 
   li {
     &:hover .sidebar__project-delete {
-      display: inline-block;
-      @include va();
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
     }
   }
 

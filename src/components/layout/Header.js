@@ -16,12 +16,20 @@ export const Header = ({ darkMode, setDarkMode }) => {
             <li className="settings__add">
               <button
                 onClick={() => {
-                  setShowQuickAddTask(true);
-                  setShouldShowMain(true);
+                  setShowQuickAddTask(
+                    (prevShowQuickAddTask) => !prevShowQuickAddTask
+                  );
+                  setShouldShowMain(
+                    (prevShouldShowMain) => !prevShouldShowMain
+                  );
                 }}
                 onKeyDown={() => {
-                  setShowQuickAddTask(true);
-                  setShouldShowMain(true);
+                  setShowQuickAddTask(
+                    (prevShowQuickAddTask) => !prevShowQuickAddTask
+                  );
+                  setShouldShowMain(
+                    (prevShouldShowMain) => !prevShouldShowMain
+                  );
                 }}
                 type="button"
               >

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState } from 'react';
 import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
@@ -47,7 +48,9 @@ export const AddTask = ({
           setTask('');
           setProject('');
           setShowMain('');
-          setShowProjectOverlay(false);
+          setShowProjectOverlay(
+            (prevShowProjectOverlay) => !prevShowProjectOverlay
+          );
         })
     );
   };
@@ -59,8 +62,8 @@ export const AddTask = ({
       {showAddTaskMain && (
         <div
           className="add-task__shallow"
-          onClick={() => setShowMain(!showMain)}
-          onKeyDown={() => setShowMain(!showMain)}
+          onClick={() => setShowMain((prevShowMain) => !prevShowMain)}
+          onKeyDown={() => setShowMain((prevShowMain) => !prevShowMain)}
           role="button"
         >
           <span className="add-task__plus">+</span>
@@ -75,16 +78,24 @@ export const AddTask = ({
               <div>
                 <h2 className="header">Quick Add Task</h2>
                 <span
-                  className="add-task__cancel-x"
+                  className="add-task__cancel"
                   onClick={() => {
-                    setShowMain(false);
-                    setShowProjectOverlay(false);
-                    setShowQuickAddTask(false);
+                    setShowMain((prevShowMain) => !prevShowMain);
+                    setShowProjectOverlay(
+                      (prevShowProjectOverlay) => !prevShowProjectOverlay
+                    );
+                    setShowQuickAddTask(
+                      (prevShowQuickAddTask) => !prevShowQuickAddTask
+                    );
                   }}
                   onKeyDown={() => {
-                    setShowMain(false);
-                    setShowProjectOverlay(false);
-                    setShowQuickAddTask(false);
+                    setShowMain((prevShowMain) => !prevShowMain);
+                    setShowProjectOverlay(
+                      (prevShowProjectOverlay) => !prevShowProjectOverlay
+                    );
+                    setShowQuickAddTask(
+                      (prevShowQuickAddTask) => !prevShowQuickAddTask
+                    );
                   }}
                   role="button"
                 >
@@ -114,12 +125,18 @@ export const AddTask = ({
             className="add-task__submit"
             onClick={() =>
               showQuickAddTask
-                ? addTask() && setShowQuickAddTask(false)
+                ? addTask() &&
+                  setShowQuickAddTask(
+                    (prevShowQuickAddTask) => !prevShowQuickAddTask
+                  )
                 : addTask()
             }
             onKeyDown={() =>
               showQuickAddTask
-                ? addTask() && setShowQuickAddTask(false)
+                ? addTask() &&
+                  setShowQuickAddTask(
+                    (prevShowQuickAddTask) => !prevShowQuickAddTask
+                  )
                 : addTask()
             }
           >
@@ -129,12 +146,16 @@ export const AddTask = ({
             <span
               className="add-task__cancel"
               onClick={() => {
-                setShowMain(false);
-                setShowProjectOverlay(false);
+                setShowMain((prevShowMain) => !prevShowMain);
+                setShowProjectOverlay(
+                  (prevShowProjectOverlay) => !prevShowProjectOverlay
+                );
               }}
               onKeyDown={() => {
-                setShowMain(false);
-                setShowProjectOverlay(false);
+                setShowMain((prevShowMain) => !prevShowMain);
+                setShowProjectOverlay(
+                  (prevShowProjectOverlay) => !prevShowProjectOverlay
+                );
               }}
               role="button"
             >
@@ -143,16 +164,28 @@ export const AddTask = ({
           )}
           <span
             className="add-task__project"
-            onClick={() => setShowProjectOverlay(!showProjectOverlay)}
-            onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
+            onClick={() =>
+              setShowProjectOverlay(
+                (prevShowProjectOverlay) => !prevShowProjectOverlay
+              )
+            }
+            onKeyDown={() =>
+              setShowProjectOverlay(
+                (prevShowProjectOverlay) => !prevShowProjectOverlay
+              )
+            }
             role="button"
           >
             <FaRegListAlt />
           </span>
           <span
             className="add-task__date"
-            onClick={() => setShowTaskDate(!showTaskDate)}
-            onKeyDown={() => setShowTaskDate(!showTaskDate)}
+            onClick={() =>
+              setShowTaskDate((prevShowTaskDate) => !prevShowTaskDate)
+            }
+            onKeyDown={() =>
+              setShowTaskDate((prevShowTaskDate) => !prevShowTaskDate)
+            }
             role="button"
           >
             <FaRegCalendarAlt />
